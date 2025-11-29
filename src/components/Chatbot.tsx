@@ -13,7 +13,7 @@ const WELCOME_MESSAGE = `Hi! Welcome to R & S Flooring. How can we help you toda
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [screen, setScreen] = useState<Screen>('home');
+  const [screen, setScreen] = useState<Screen>('chat');
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [typingMessage, setTypingMessage] = useState<string | null>(null);
@@ -294,17 +294,17 @@ const Chatbot = () => {
                   <div>
                     <h3 className="font-bold text-lg sm:text-xl tracking-wide">R & S Flooring</h3>
                     <div className="flex items-center space-x-2 text-xs sm:text-sm opacity-90">
-                      <span className="text-gray-300">❄️ Online Now</span>
+                      <span className="text-gray-300">Online Now</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="text-xs sm:text-sm opacity-90 text-gray-200">
-                {screen === 'home' && "👋 Expert Heating & Cooling Services in Alabama"}
-                {screen === 'chat' && "💬 We typically respond within seconds"}
-                {screen === 'faq' && "❓ Quick answers to common questions"}
-                {screen === 'appointment' && "📅 Schedule your service appointment"}
+                {screen === 'home' && "Expert Heating & Cooling Services in Alabama"}
+                {screen === 'chat' && "We typically respond within seconds"}
+                {screen === 'faq' && "Quick answers to common questions"}
+                {screen === 'appointment' && "Schedule your service appointment"}
               </div>
 
               {screen === 'home' && (
@@ -495,7 +495,6 @@ const Chatbot = () => {
           <div className="border-t-2 border-gray-200 bg-white">
             <div className="flex">
               {[
-                { icon: Home, label: 'Home', screen: 'home' as Screen },
                 { icon: MessageCircle, label: 'Chat', screen: 'chat' as Screen },
                 { icon: HelpCircle, label: 'FAQ', screen: 'faq' as Screen }
               ].map((item) => {
